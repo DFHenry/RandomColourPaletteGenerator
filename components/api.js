@@ -71,8 +71,7 @@ async function getColours(a, b, c, d, e)
         colorCode = colorHex[i];
         await getCodes(colorCode, colorSet, i);
     }
-    
-    //console.log(fullColorList);
+
     return fullColorList;
 }
 
@@ -113,12 +112,6 @@ async function getCodes(c, set, i)
 
             //push the full entry onto the full colour list array
             fullColorList.push(colorEntry);
-
-            // console.log(`Name: ${data.name.value}`);
-            // console.log(`HEX: ${data.hex.value}`);
-            // console.log(`RGB: ${data.rgb.value}`);
-            // console.log(`HSL: ${data.hsl.value}`);
-            // console.log(`CMYK: ${data.cmyk.value}`);
         })
 }
 

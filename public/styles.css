@@ -2,7 +2,7 @@
 
 html
 {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
@@ -15,6 +15,24 @@ h1
 {
     font-size: 3em;
     margin: 15px 0;
+}
+
+button
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+    color: #fff;
+    background-color: black;
+    border: #000 solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+button:hover
+{
+    color: #000;
+    background-color: #fff;
 }
 
 /* 2. LAYOUTS */
@@ -97,6 +115,21 @@ h1
 .cssArea
 {
     margin: 0 15% 10px 15%;
+}
+
+/* Area for clipboard button and message */
+#clipboard
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#copiedMessage
+{
+    color: darkgreen;
+    font-size: 1em;
+    margin-left: 10px;
+    display: none;
 }
 
 /* styling for the CSS copy & paste area */

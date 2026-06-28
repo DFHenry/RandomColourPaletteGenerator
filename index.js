@@ -20,8 +20,24 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", async (req, res) =>
 {
     let colorList = await appFunctions.getColours();
+    let copyText = ":root {";
 
-    res.render("index", {colors: colorList});
+    let colorArray = [];
+
+    for(let i = 0; i < colorList.length; i++)
+    {
+        colorArray.push(colorList[i]);
+        copyText += "--color-" + i.toString() + ": " + colorArray[i].map(x => x.hex) + ";\n";
+    }
+
+    copyText += "}";
+
+    res.render("index", {colors: colorList, cssText: copyText});
+});
+
+app.get("/copy", async (req, res) =>
+{
+    //let copyText = await copyToClipboard(req.query.);
 });
 
 //setup server listening

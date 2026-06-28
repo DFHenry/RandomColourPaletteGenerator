@@ -21,12 +21,40 @@ block main-content
     
     div(class="cssArea")
         h2 Variables for CSS:
+        div(id="clipboard")
+            button(id="copyBtn" onClick="copyToClipboard()") Copy To Clipboard
+            p(id="copiedMessage") Copied!
         div(class="cssArray")
-            p :root &#123;
+            p(id="cssParagraph") :root &#123;
             each color in colors
                 each c in color 
                     p --color-#{c.colorId + 1}: #{c.hex};
             p &#125;
 
+    div(id="textCopy" hidden)
+        #{cssText}
+
+    script.
+        var cssParagraph = document.getElementById("cssParagraph");
+        var copyDiv = document.getElementById("textCopy");
+        var copyBtn = document.getElementById("copyBtn");
+        var copiedMessage = document.getElementById("copiedMessage");
+
+        //variables for properly formatted string for copyToClipboard
+        var initStr = copyDiv.innerText;
+        var newStr = initStr.substring(1);
+        var finalStr = newStr.slice(0, -1);
+
+        //copy css variables to the clipboard
+        function copyToClipboard()
+        {
+            navigator.clipboard.writeText(finalStr);
+            copiedMessage.style.display = "block";
+            console.log(finalStr + " copied to the clipboard!");
+        }
+
+        
+
+        
 
         
